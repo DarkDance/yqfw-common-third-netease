@@ -346,7 +346,7 @@ public class NeteaseImClient {
     public void sendChatRoomMessage(String chatRoomId, String fromUsername, MsgType msgType, String msg, Object ext) throws BusinessException {
         NeteaseBaseRsp<Object> body;
         try {
-            String msgId = RandomUtilPlus.String.randomAlphanumeric(30);
+            String msgId = RandomUtilPlus.String.nextAlphanumeric(30);
             URIBuilder sendMsgUri = new URIBuilder(NETEASE_IM_CHAT_ROOM_SEND_MSG)
                     .addParameter("roomid", chatRoomId) //聊天室id
                     .addParameter("msgId", msgId) //客户端消息id，使用uuid等随机串，msgId相同的消息会被客户端去重
@@ -476,7 +476,7 @@ public class NeteaseImClient {
     private HttpHeaders getNeteaseHeader() {
         HttpHeaders neteaseHeader = new HttpHeaders();
 
-        String nonceStr = RandomUtilPlus.String.randomAlphanumeric(32);
+        String nonceStr = RandomUtilPlus.String.nextAlphanumeric(32);
         String curTime = String.valueOf(System.currentTimeMillis() / 1000);
         String checkSum = DigestUtilPlus.SHA.sign(appSecret + nonceStr + curTime, DigestUtilPlus.SHAAlgo._1, Boolean.FALSE);
 
