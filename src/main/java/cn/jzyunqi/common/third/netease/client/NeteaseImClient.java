@@ -136,7 +136,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_create_user_error");
         }
 
-        if (!StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (!StringUtilPlus.equals(body.getCode(), "200")) {
             log.error("======NeteaseImHelper createUser [{}] 200 error, code[{}][{}]:", username, body.getCode(), body.getDesc());
             throw new BusinessException("common_error_ne_im_create_user_failed");
         }
@@ -162,7 +162,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_get_uinfos_error");
         }
 
-        if (StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (StringUtilPlus.equals(body.getCode(), "200")) {
             return body.getUserList();
         } else {
             log.error("======NeteaseImHelper getUinfos [{}] error, code[{}][{}]:", usernameList, body.getCode(), body.getDesc());
@@ -195,7 +195,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_update_user_info_error");
         }
 
-        if (!StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (!StringUtilPlus.equals(body.getCode(), "200")) {
             log.error("======NeteaseImHelper updateUser [{}] 200 error, code[{}][{}]:", username, body.getCode(), body.getDesc());
             throw new BusinessException("common_error_ne_im_update_user_info_failed");
         }
@@ -226,7 +226,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_create_chat_room_error");
         }
 
-        if (StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (StringUtilPlus.equals(body.getCode(), "200")) {
             return body.getChatRoom().getRoomId();
         } else {
             log.error("======NeteaseImHelper createChatRoom [{}] error, code[{}][{}]:", creator, body.getCode(), body.getDesc());
@@ -261,7 +261,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_get_chat_room_address_error");
         }
 
-        if (StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (StringUtilPlus.equals(body.getCode(), "200")) {
             return body.getAddressList();
         } else {
             log.error("======NeteaseImHelper getChatRoomAddress [{}] error, code[{}][{}]:", chatRoomId, body.getCode(), body.getDesc());
@@ -293,7 +293,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_toggle_chat_room_close_error");
         }
 
-        if (!StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (!StringUtilPlus.equals(body.getCode(), "200")) {
             log.error("======NeteaseImHelper closeChatRoom [{}] 200 error, code[{}][{}]:", creator, body.getCode(), body.getDesc());
             throw new BusinessException("common_error_ne_im_toggle_chat_room_close_failed");
         }
@@ -328,7 +328,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_set_member_role_error");
         }
 
-        if (!StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (!StringUtilPlus.equals(body.getCode(), "200")) {
             log.error("======NeteaseImHelper setMemberRole [{}][{}] 200 error, code[{}][{}]:", chatRoomId, target, body.getCode(), body.getDesc());
             throw new BusinessException("common_error_ne_im_set_member_role_failed");
         }
@@ -367,7 +367,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_send_chat_room_msg_error");
         }
 
-        if (!StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (!StringUtilPlus.equals(body.getCode(), "200")) {
             log.error("======NeteaseImHelper sendChatRoomMessage [{}] 200 error, code[{}][{}]:", chatRoomId, body.getCode(), body.getDesc());
             throw new BusinessException("common_error_ne_im_send_chat_room_msg_failed");
         }
@@ -401,7 +401,7 @@ public class NeteaseImClient {
             throw new BusinessException("common_error_ne_im_user_by_page_error");
         }
 
-        if (StringUtilPlus.CS.equals(body.getCode(), "200")) {
+        if (StringUtilPlus.equals(body.getCode(), "200")) {
             ChatRoomResult chatRoomResult = body.getDesc();
             return chatRoomResult.getData();
         } else {
